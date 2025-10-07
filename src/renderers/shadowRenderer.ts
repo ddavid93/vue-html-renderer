@@ -13,7 +13,7 @@
  * @module shadowRenderer
  */
 
-import { normalizeHtml } from '../utils'
+import { normalizeHtml } from '../extras/utils'
 
 /**
  * Extract @font-face rules from style elements and inject into main document.

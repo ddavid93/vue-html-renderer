@@ -1,6 +1,9 @@
-# HTML Renderer Library
+# VueHTMLRenderer
 
 A powerful and flexible Vue 3 library for rendering arbitrary HTML content with two distinct rendering modes: **Direct Mode** (with script execution) and **Shadow Mode** (with style isolation).
+
+> **⚠️ SECURITY WARNING**  
+> **This library does NOT sanitize or validate HTML content. If you render HTML containing malicious scripts in Direct Mode, those scripts WILL execute. Always sanitize untrusted HTML content before passing it to this component, or use Shadow Mode (which disables script execution) when rendering content from untrusted sources.**
 
 ## 📋 Table of Contents
 
@@ -101,16 +104,20 @@ You might wonder: "Why not just use an `<iframe>`?" Here are the key reasons:
 The library is organized by responsibility for easy maintenance and potential library distribution:
 
 ```
-htmlRenderer/
-├── types.ts                    # TypeScript type definitions
-├── utils.ts                    # Shared utility functions
-├── HtmlRenderer.vue            # Unified Vue component
-├── composables/
-│   └── useHtmlRenderer.ts      # Unified composable (orchestrator)
-├── renderers/
-│   ├── shadowRenderer.ts       # Shadow DOM rendering logic
-│   └── directRenderer.ts       # Direct rendering with script execution
-└── README.md                   # This file
+vue-html-renderer/
+├── src/
+│   ├── App.vue                    # Main Vue component
+│   ├── index.ts                   # Library entry point (exports)
+│   ├── main.ts                    # Dev/demo entry point
+│   ├── extras/
+│   │   ├── types.ts               # TypeScript type definitions
+│   │   └── utils.ts               # Shared utility functions
+│   ├── composables/
+│   │   └── useHtmlRenderer.ts     # Composable (internal use)
+│   └── renderers/
+│       ├── shadowRenderer.ts      # Shadow DOM rendering logic
+│       └── directRenderer.ts      # Direct rendering with script execution
+└── README.md                      # This file
 ```
 
 ### Design Principles

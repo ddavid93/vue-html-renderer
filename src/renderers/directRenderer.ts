@@ -21,8 +21,8 @@
  */
 
 import { nextTick } from 'vue'
-import { findPlaceholderNode, normalizeAttr, normalizeHtml, uid } from '../utils'
-import type { IScriptMeta } from '../types'
+import { findPlaceholderNode, normalizeAttr, normalizeHtml, uid } from '../extras/utils'
+import type { IScriptMeta } from '../extras/types'
 
 /**
  * Extract all <script> elements from a container and replace each with a

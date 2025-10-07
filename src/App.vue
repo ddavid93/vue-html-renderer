@@ -52,9 +52,8 @@
   - Clean unmount with proper cleanup
 -->
 <script setup lang="ts">
-import { defineProps } from 'vue'
 import { useHtmlRenderer } from './composables/useHtmlRenderer'
-import type { IHtmlRendererProps } from '@/extras/types.ts'
+import type { IHtmlRendererProps } from './extras/types'
 
 /**
  * Component props definition
@@ -69,5 +68,22 @@ const props = withDefaults(defineProps<IHtmlRendererProps>(), {
 const { hostRef } = useHtmlRenderer({
   html: props.html,
   isShadow: props.isShadow,
+})
+
+/**
+ * Expose the hostRef so parent components can access the root element.
+ * This allows parent components to use ResizeObserver or access the DOM element.
+ *
+ * In Vue 3 with script setup, we need to explicitly expose internal refs.
+ * We expose the hostRef itself so parent components can access it as a computed getter.
+ *
+ * Usage in parent:
+ * - rendererRef.value.hostRef will return the Ref
+ * - Or we can expose $el as a getter that returns hostRef.value
+ */
+defineExpose({
+  get $el() {
+    return hostRef.value
+  },
 })
 </script>
