@@ -2,6 +2,26 @@
   "name": "vue-html-renderer",
   "version": "1.0.0",
   "description": "A powerful and flexible Vue library for rendering arbitrary HTML content with two distinct rendering modes: Direct Mode (with script execution) and Shadow Mode (with style isolation)",
+  "keywords": [
+    "vue",
+    "vue3",
+    "html",
+    "renderer",
+    "shadow-dom",
+    "html-rendering",
+    "component",
+    "typescript"
+  ],
+  "homepage": "https://github.com/ddavid93/vue-html-renderer#readme",
+  "bugs": {
+    "url": "https://github.com/ddavid93/vue-html-renderer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddavid93/vue-html-renderer.git"
+  },
+  "license": "MIT",
+  "author": "Daniel David Díaz González <ddavid930826@gmail.com>",
   "type": "module",
   "module": "./dist/vue-html-renderer.js",
   "types": "./dist/index.d.ts",
@@ -21,11 +41,10 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" -- && pnpm run build:types",
+    "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
     "build-only": "vite build",
-    "build:types": "vue-tsc --project tsconfig.build.json",
     "type-check": "vue-tsc --build --force",
     "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
     "install-packages": "pnpm install",
