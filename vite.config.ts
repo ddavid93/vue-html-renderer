@@ -13,7 +13,7 @@ export default defineConfig({
       // Generate declaration files from .ts and .vue files in src
       include: ['src/**/*.ts', 'src/**/*.vue'],
       // Exclude test files and env.d.ts
-      exclude: ['src/**/__tests__/**', 'env.d.ts', 'src/main.ts'],
+      exclude: ['src/**/__tests__/**', 'env.d.ts'],
       // Output directory for declaration files
       outDir: 'dist',
       // Don't rollup types to avoid api-extractor issues
@@ -32,7 +32,7 @@ export default defineConfig({
   build: {
     lib: {
       // Entry point for the library
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: resolve(__dirname, 'src/main.ts'),
       // Library name (global variable name in UMD build)
       name: 'VueHTMLRenderer',
       // Output file names for different formats

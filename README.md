@@ -1,6 +1,6 @@
 # VueHTMLRenderer
 
-A powerful and flexible Vue 3 library for rendering arbitrary HTML content with two distinct rendering modes: **Direct Mode** (with script execution) and **Shadow Mode** (with style isolation).
+A powerful and flexible Vue library for rendering arbitrary HTML content with two distinct rendering modes: **Direct Mode** (with script execution) and **Shadow Mode** (with style isolation). Compatible with Vue 2.7+ and Vue 3.
 
 > **⚠️ SECURITY WARNING**  
 > **This library does NOT sanitize or validate HTML content. If you render HTML containing malicious scripts in Direct Mode, those scripts WILL execute. Always sanitize untrusted HTML content before passing it to this component, or use Shadow Mode (which disables script execution) when rendering content from untrusted sources.**
@@ -22,7 +22,7 @@ A powerful and flexible Vue 3 library for rendering arbitrary HTML content with 
 
 ## 🎯 Overview
 
-This library provides a unified solution for rendering HTML content in Vue 3 applications with full control over rendering behavior. It addresses common challenges when working with dynamic HTML content, such as:
+This library provides a unified solution for rendering HTML content in Vue applications (Vue 2.7+ and Vue 3) with full control over rendering behavior. It addresses common challenges when working with dynamic HTML content, such as:
 
 - **Script Execution**: Execute embedded JavaScript with proper browser-like semantics
 - **Style Isolation**: Prevent CSS conflicts using Shadow DOM
@@ -93,7 +93,7 @@ You might wonder: "Why not just use an `<iframe>`?" Here are the key reasons:
 
 ### Common Features
 
-- ✅ Vue 3 Composition API
+- ✅ Vue Composition API (Vue 2.7+ and Vue 3)
 - ✅ Full TypeScript support
 - ✅ Comprehensive documentation
 - ✅ Custom Element compatibility
@@ -110,8 +110,7 @@ The library is organized by responsibility for easy maintenance and potential li
 vue-html-renderer/
 ├── src/
 │   ├── App.vue                    # Main Vue component
-│   ├── index.ts                   # Library entry point (exports)
-│   ├── main.ts                    # Dev/demo entry point
+│   ├── main.ts                    # Library entry point (exports)
 │   ├── extras/
 │   │   ├── types.ts               # TypeScript type definitions
 │   │   └── utils.ts               # Shared utility functions
@@ -485,8 +484,8 @@ Free to use.
 
 ## 🙏 Acknowledgments
 
-This library was built to solve real-world challenges in rendering dynamic HTML content in Vue 3 applications, specifically for rendering formatted documents like coupons and vouchers with proper style isolation and font loading.
+This library was built to solve real-world challenges in rendering dynamic HTML content in Vue applications (Vue 2.7+ and Vue 3), specifically for rendering formatted documents like coupons and vouchers with proper style isolation and font loading.
 
 ---
 
-**Built with ❤️ for Vue 3 developers who need powerful HTML rendering capabilities.**
+**Built with ❤️ for Vue developers (Vue 2.7+ and Vue 3) who need powerful HTML rendering capabilities.**

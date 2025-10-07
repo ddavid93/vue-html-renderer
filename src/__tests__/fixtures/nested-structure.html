@@ -1,215 +1,233 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Nested Structure Test</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f0f0f0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-      background: white;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 12px;
-      text-align: left;
-    }
-    th {
-      background-color: #4CAF50;
-      color: white;
-    }
-    tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-    .level-1 {
-      background: #ffebee;
-      padding: 20px;
-      margin: 20px 0;
-      border-left: 4px solid #f44336;
-    }
-    .level-2 {
-      background: #fff3e0;
-      padding: 15px;
-      margin: 15px 0;
-      border-left: 4px solid #ff9800;
-    }
-    .level-3 {
-      background: #e8f5e9;
-      padding: 10px;
-      margin: 10px 0;
-      border-left: 4px solid #4caf50;
-    }
-    .level-4 {
-      background: #e3f2fd;
-      padding: 8px;
-      margin: 8px 0;
-      border-left: 4px solid #2196f3;
-    }
-    ul {
-      list-style-type: disc;
-    }
-    ol {
-      list-style-type: decimal;
-    }
-    blockquote {
-      border-left: 4px solid #9e9e9e;
-      padding-left: 20px;
-      margin: 20px 0;
-      font-style: italic;
-      color: #666;
-    }
-  </style>
-</head>
-<body>
-  <h1>Nested Structure Test</h1>
-  
-  <!-- Complex Table -->
-  <h2>Complex Table Structure</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Header 1</th>
-        <th>Header 2</th>
-        <th>Header 3</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Row 1, Cell 1</td>
-        <td>Row 1, Cell 2</td>
-        <td>Row 1, Cell 3</td>
-      </tr>
-      <tr>
-        <td>Row 2, Cell 1</td>
-        <td>Row 2, Cell 2</td>
-        <td>Row 2, Cell 3</td>
-      </tr>
-      <tr>
-        <td>Row 3, Cell 1</td>
-        <td>Row 3, Cell 2</td>
-        <td>Row 3, Cell 3</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td colspan="3">Table Footer</td>
-      </tr>
-    </tfoot>
-  </table>
-  
-  <!-- Nested Lists -->
-  <h2>Nested Lists</h2>
-  <ul>
-    <li>Level 1 Item 1
-      <ul>
-        <li>Level 2 Item 1
-          <ul>
-            <li>Level 3 Item 1</li>
-            <li>Level 3 Item 2</li>
-          </ul>
-        </li>
-        <li>Level 2 Item 2</li>
-      </ul>
-    </li>
-    <li>Level 1 Item 2</li>
-  </ul>
-  
-  <ol>
-    <li>First ordered item
-      <ol>
-        <li>Nested first
-          <ol>
-            <li>Deep nested first</li>
-            <li>Deep nested second</li>
-          </ol>
-        </li>
-        <li>Nested second</li>
-      </ol>
-    </li>
-    <li>Second ordered item</li>
-  </ol>
-  
-  <!-- Deeply Nested Divs -->
-  <h2>Deeply Nested Divs</h2>
-  <div class="level-1">
-    Level 1 Container
-    <div class="level-2">
-      Level 2 Container
-      <div class="level-3">
-        Level 3 Container
-        <div class="level-4">
-          Level 4 Container
-          <p>This is deeply nested content to test renderer's ability to handle complex DOM hierarchies.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nested Structure Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f0f0f0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      .level-1 {
+        background: #ffebee;
+        padding: 20px;
+        margin: 20px 0;
+        border-left: 4px solid #f44336;
+      }
+
+      .level-2 {
+        background: #fff3e0;
+        padding: 15px;
+        margin: 15px 0;
+        border-left: 4px solid #ff9800;
+      }
+
+      .level-3 {
+        background: #e8f5e9;
+        padding: 10px;
+        margin: 10px 0;
+        border-left: 4px solid #4caf50;
+      }
+
+      .level-4 {
+        background: #e3f2fd;
+        padding: 8px;
+        margin: 8px 0;
+        border-left: 4px solid #2196f3;
+      }
+
+      ul {
+        list-style-type: disc;
+      }
+
+      ol {
+        list-style-type: decimal;
+      }
+
+      blockquote {
+        border-left: 4px solid #9e9e9e;
+        padding-left: 20px;
+        margin: 20px 0;
+        font-style: italic;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Nested Structure Test</h1>
+
+    <!-- Complex Table -->
+    <h2>Complex Table Structure</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Header 1</th>
+          <th>Header 2</th>
+          <th>Header 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Row 1, Cell 1</td>
+          <td>Row 1, Cell 2</td>
+          <td>Row 1, Cell 3</td>
+        </tr>
+        <tr>
+          <td>Row 2, Cell 1</td>
+          <td>Row 2, Cell 2</td>
+          <td>Row 2, Cell 3</td>
+        </tr>
+        <tr>
+          <td>Row 3, Cell 1</td>
+          <td>Row 3, Cell 2</td>
+          <td>Row 3, Cell 3</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Table Footer</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- Nested Lists -->
+    <h2>Nested Lists</h2>
+    <ul>
+      <li>
+        Level 1 Item 1
+        <ul>
+          <li>
+            Level 2 Item 1
+            <ul>
+              <li>Level 3 Item 1</li>
+              <li>Level 3 Item 2</li>
+            </ul>
+          </li>
+          <li>Level 2 Item 2</li>
+        </ul>
+      </li>
+      <li>Level 1 Item 2</li>
+    </ul>
+
+    <ol>
+      <li>
+        First ordered item
+        <ol>
+          <li>
+            Nested first
+            <ol>
+              <li>Deep nested first</li>
+              <li>Deep nested second</li>
+            </ol>
+          </li>
+          <li>Nested second</li>
+        </ol>
+      </li>
+      <li>Second ordered item</li>
+    </ol>
+
+    <!-- Deeply Nested Divs -->
+    <h2>Deeply Nested Divs</h2>
+    <div class="level-1">
+      Level 1 Container
+      <div class="level-2">
+        Level 2 Container
+        <div class="level-3">
+          Level 3 Container
+          <div class="level-4">
+            Level 4 Container
+            <p>
+              This is deeply nested content to test renderer's ability to handle complex DOM
+              hierarchies.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  
-  <!-- Blockquote Nesting -->
-  <h2>Nested Blockquotes</h2>
-  <blockquote>
-    This is a first-level quote.
+
+    <!-- Blockquote Nesting -->
+    <h2>Nested Blockquotes</h2>
     <blockquote>
-      This is a nested quote.
+      This is a first-level quote.
       <blockquote>
-        This is a deeply nested quote.
+        This is a nested quote.
+        <blockquote>This is a deeply nested quote.</blockquote>
       </blockquote>
     </blockquote>
-  </blockquote>
-  
-  <!-- Complex Mixed Structure -->
-  <h2>Mixed Nested Structure</h2>
-  <div class="level-1">
-    <p>Paragraph in level 1</p>
-    <ul>
-      <li>List item with nested content
-        <div class="level-2">
-          <p>Paragraph inside list item</p>
-          <table>
-            <tr>
-              <td>Table in list</td>
-              <td>Complex nesting</td>
-            </tr>
-          </table>
-        </div>
-      </li>
-    </ul>
-  </div>
-  
-  <script>
-    // Mark nested structure as loaded
-    window.__nestedStructureLoaded = true;
-    
-    // Count nesting levels
-    const level1 = document.querySelectorAll('.level-1').length;
-    const level2 = document.querySelectorAll('.level-2').length;
-    const level3 = document.querySelectorAll('.level-3').length;
-    const level4 = document.querySelectorAll('.level-4').length;
-    
-    window.__nestingLevels = {
-      level1,
-      level2,
-      level3,
-      level4
-    };
-    
-    // Count table elements
-    const tables = document.querySelectorAll('table').length;
-    const tableRows = document.querySelectorAll('tr').length;
-    
-    window.__tableStats = {
-      tables,
-      rows: tableRows
-    };
-    
-    console.log('Nested structure loaded:', window.__nestingLevels);
-  </script>
-</body>
+
+    <!-- Complex Mixed Structure -->
+    <h2>Mixed Nested Structure</h2>
+    <div class="level-1">
+      <p>Paragraph in level 1</p>
+      <ul>
+        <li>
+          List item with nested content
+          <div class="level-2">
+            <p>Paragraph inside list item</p>
+            <table>
+              <tr>
+                <td>Table in list</td>
+                <td>Complex nesting</td>
+              </tr>
+            </table>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      // Mark nested structure as loaded
+      window.__nestedStructureLoaded = true
+
+      // Count nesting levels
+      const level1 = document.querySelectorAll('.level-1').length
+      const level2 = document.querySelectorAll('.level-2').length
+      const level3 = document.querySelectorAll('.level-3').length
+      const level4 = document.querySelectorAll('.level-4').length
+
+      window.__nestingLevels = {
+        level1,
+        level2,
+        level3,
+        level4,
+      }
+
+      // Count table elements
+      const tables = document.querySelectorAll('table').length
+      const tableRows = document.querySelectorAll('tr').length
+
+      window.__tableStats = {
+        tables,
+        rows: tableRows,
+      }
+
+      console.log('Nested structure loaded:', window.__nestingLevels)
+    </script>
+  </body>
 </html>

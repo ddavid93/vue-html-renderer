@@ -1,119 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Font Face Test</title>
-  <style>
-    @font-face {
-      font-family: 'CustomFont';
-      src: url('data:font/woff2;base64,d09GMgABAAAAAAKAAA0AAAAAB+AAAAIuAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbEBwaBmAAgTIBNgIkAzAEBgWDGgcgG5EFyB4QJWB7wQAAA') format('woff2');
-      font-weight: normal;
-      font-style: normal;
-    }
-    
-    @font-face {
-      font-family: 'CustomFont';
-      src: url('data:font/woff2;base64,d09GMgABAAAAAAKAAA0AAAAAB+AAAAIuAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbEBwaBmAAgTIBNgIkAzAEBgWDGgcgG5EFyB4QJWB7wQAAB') format('woff2');
-      font-weight: bold;
-      font-style: normal;
-    }
-    
-    body {
-      font-family: 'CustomFont', Arial, sans-serif;
-      padding: 40px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      min-height: 100vh;
-    }
-    
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    }
-    
-    h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-      font-weight: bold;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-    
-    .normal-text {
-      font-size: 1.2em;
-      line-height: 1.8;
-      margin: 20px 0;
-      font-weight: normal;
-    }
-    
-    .bold-text {
-      font-size: 1.5em;
-      font-weight: bold;
-      margin: 20px 0;
-    }
-    
-    .feature-box {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 20px;
-      border-radius: 8px;
-      margin: 15px 0;
-      border-left: 4px solid #ffd700;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Font Face Test</h1>
-    
-    <div class="normal-text">
-      This text uses the CustomFont with normal weight. The @font-face declaration should be extracted 
-      from the Shadow DOM and injected into the main document head so the font loads properly.
+  <head>
+    <meta charset="UTF-8" />
+    <title>Font Face Test</title>
+    <style>
+      @font-face {
+        font-family: 'CustomFont';
+        src: url('data:font/woff2;base64,d09GMgABAAAAAAKAAA0AAAAAB+AAAAIuAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbEBwaBmAAgTIBNgIkAzAEBgWDGgcgG5EFyB4QJWB7wQAAA')
+          format('woff2');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'CustomFont';
+        src: url('data:font/woff2;base64,d09GMgABAAAAAAKAAA0AAAAAB+AAAAIuAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbEBwaBmAAgTIBNgIkAzAEBgWDGgcgG5EFyB4QJWB7wQAAB')
+          format('woff2');
+        font-weight: bold;
+        font-style: normal;
+      }
+
+      body {
+        font-family: 'CustomFont', Arial, sans-serif;
+        padding: 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .normal-text {
+        font-size: 1.2em;
+        line-height: 1.8;
+        margin: 20px 0;
+        font-weight: normal;
+      }
+
+      .bold-text {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 20px 0;
+      }
+
+      .feature-box {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 20px;
+        border-radius: 8px;
+        margin: 15px 0;
+        border-left: 4px solid #ffd700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Font Face Test</h1>
+
+      <div class="normal-text">
+        This text uses the CustomFont with normal weight. The @font-face declaration should be
+        extracted from the Shadow DOM and injected into the main document head so the font loads
+        properly.
+      </div>
+
+      <div class="bold-text">
+        This text uses the CustomFont with bold weight to test multiple @font-face declarations.
+      </div>
+
+      <div class="feature-box">
+        <h3>Font Loading Features</h3>
+        <ul>
+          <li>Custom fonts defined via @font-face</li>
+          <li>Multiple font weights (normal and bold)</li>
+          <li>Automatic extraction in Shadow Mode</li>
+          <li>Injection into main document head</li>
+          <li>Prevents duplicate font loading</li>
+        </ul>
+      </div>
+
+      <div class="feature-box">
+        <h3>Testing Scenarios</h3>
+        <p class="normal-text">
+          <strong>Shadow Mode:</strong> Fonts should be extracted and injected into document.head
+        </p>
+        <p class="normal-text">
+          <strong>Direct Mode:</strong> Fonts work naturally without special handling
+        </p>
+      </div>
     </div>
-    
-    <div class="bold-text">
-      This text uses the CustomFont with bold weight to test multiple @font-face declarations.
-    </div>
-    
-    <div class="feature-box">
-      <h3>Font Loading Features</h3>
-      <ul>
-        <li>Custom fonts defined via @font-face</li>
-        <li>Multiple font weights (normal and bold)</li>
-        <li>Automatic extraction in Shadow Mode</li>
-        <li>Injection into main document head</li>
-        <li>Prevents duplicate font loading</li>
-      </ul>
-    </div>
-    
-    <div class="feature-box">
-      <h3>Testing Scenarios</h3>
-      <p class="normal-text">
-        <strong>Shadow Mode:</strong> Fonts should be extracted and injected into document.head
-      </p>
-      <p class="normal-text">
-        <strong>Direct Mode:</strong> Fonts work naturally without special handling
-      </p>
-    </div>
-  </div>
-  
-  <script>
-    // Mark that font face test is loaded
-    window.__fontFaceLoaded = true;
-    
-    // Check if fonts are applied
-    const container = document.querySelector('.container');
-    if (container) {
-      const styles = window.getComputedStyle(container);
-      const fontFamily = styles.fontFamily;
-      window.__appliedFontFamily = fontFamily;
-      container.setAttribute('data-font-checked', 'true');
-    }
-    
-    console.log('Font face test loaded');
-  </script>
-</body>
+
+    <script>
+      // Mark that font face test is loaded
+      window.__fontFaceLoaded = true
+
+      // Check if fonts are applied
+      const container = document.querySelector('.container')
+      if (container) {
+        const styles = window.getComputedStyle(container)
+        const fontFamily = styles.fontFamily
+        window.__appliedFontFamily = fontFamily
+        container.setAttribute('data-font-checked', 'true')
+      }
+
+      console.log('Font face test loaded')
+    </script>
+  </body>
 </html>

@@ -1,245 +1,254 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Interactive Elements Test</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background: #f5f5f5;
-    }
-    .container {
-      background: white;
-      border-radius: 8px;
-      padding: 20px;
-      margin: 20px 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    button {
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-      margin: 5px;
-    }
-    button:hover {
-      background: #0056b3;
-    }
-    button:disabled {
-      background: #cccccc;
-      cursor: not-allowed;
-    }
-    input[type="text"],
-    input[type="email"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 8px;
-      margin: 5px 0;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-    .counter {
-      font-size: 24px;
-      font-weight: bold;
-      color: #007bff;
-      margin: 10px 0;
-    }
-    .result {
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 4px;
-      background: #e7f3ff;
-      border: 1px solid #b3d9ff;
-    }
-    .checkbox-group,
-    .radio-group {
-      margin: 10px 0;
-    }
-    label {
-      display: block;
-      margin: 5px 0;
-    }
-  </style>
-</head>
-<body>
-  <h1>Interactive Elements Test</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Interactive Elements Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #f5f5f5;
+      }
 
-  <!-- Counter Section -->
-  <div class="container">
-    <h2>Click Counter</h2>
-    <div id="counter" class="counter">0</div>
-    <button id="increment-btn">Increment</button>
-    <button id="decrement-btn">Decrement</button>
-    <button id="reset-btn">Reset</button>
-  </div>
+      .container {
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
 
-  <!-- Form Section -->
-  <div class="container">
-    <h2>Contact Form</h2>
-    <form id="contact-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-      
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
-      
-      <div class="checkbox-group">
+      button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 5px;
+      }
+
+      button:hover {
+        background: #0056b3;
+      }
+
+      button:disabled {
+        background: #cccccc;
+        cursor: not-allowed;
+      }
+
+      input[type='text'],
+      input[type='email'],
+      select,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      .counter {
+        font-size: 24px;
+        font-weight: bold;
+        color: #007bff;
+        margin: 10px 0;
+      }
+
+      .result {
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 4px;
+        background: #e7f3ff;
+        border: 1px solid #b3d9ff;
+      }
+
+      .checkbox-group,
+      .radio-group {
+        margin: 10px 0;
+      }
+
+      label {
+        display: block;
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Interactive Elements Test</h1>
+
+    <!-- Counter Section -->
+    <div class="container">
+      <h2>Click Counter</h2>
+      <div id="counter" class="counter">0</div>
+      <button id="increment-btn">Increment</button>
+      <button id="decrement-btn">Decrement</button>
+      <button id="reset-btn">Reset</button>
+    </div>
+
+    <!-- Form Section -->
+    <div class="container">
+      <h2>Contact Form</h2>
+      <form id="contact-form">
+        <label for="name">Name:</label>
+        <input id="name" name="name" required type="text" />
+
+        <label for="email">Email:</label>
+        <input id="email" name="email" required type="email" />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required rows="4"></textarea>
+
+        <div class="checkbox-group">
+          <label>
+            <input name="newsletter" type="checkbox" value="yes" />
+            Subscribe to newsletter
+          </label>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+      <div id="form-result" class="result" style="display: none"></div>
+    </div>
+
+    <!-- Select and Radio Section -->
+    <div class="container">
+      <h2>Preferences</h2>
+
+      <label for="theme">Theme:</label>
+      <select id="theme" name="theme">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="auto">Auto</option>
+      </select>
+
+      <div class="radio-group">
+        <p>Notification preference:</p>
         <label>
-          <input type="checkbox" name="newsletter" value="yes">
-          Subscribe to newsletter
+          <input checked name="notifications" type="radio" value="all" />
+          All notifications
+        </label>
+        <label>
+          <input name="notifications" type="radio" value="important" />
+          Important only
+        </label>
+        <label>
+          <input name="notifications" type="radio" value="none" />
+          None
         </label>
       </div>
-      
-      <button type="submit">Submit</button>
-    </form>
-    <div id="form-result" class="result" style="display:none;"></div>
-  </div>
 
-  <!-- Select and Radio Section -->
-  <div class="container">
-    <h2>Preferences</h2>
-    
-    <label for="theme">Theme:</label>
-    <select id="theme" name="theme">
-      <option value="light">Light</option>
-      <option value="dark">Dark</option>
-      <option value="auto">Auto</option>
-    </select>
-    
-    <div class="radio-group">
-      <p>Notification preference:</p>
-      <label>
-        <input type="radio" name="notifications" value="all" checked>
-        All notifications
-      </label>
-      <label>
-        <input type="radio" name="notifications" value="important">
-        Important only
-      </label>
-      <label>
-        <input type="radio" name="notifications" value="none">
-        None
-      </label>
+      <div id="preference-result" class="result"></div>
     </div>
-    
-    <div id="preference-result" class="result"></div>
-  </div>
 
-  <!-- Dynamic List Section -->
-  <div class="container">
-    <h2>Todo List</h2>
-    <input type="text" id="todo-input" placeholder="Enter a task">
-    <button id="add-todo-btn">Add Task</button>
-    <ul id="todo-list"></ul>
-  </div>
+    <!-- Dynamic List Section -->
+    <div class="container">
+      <h2>Todo List</h2>
+      <input id="todo-input" placeholder="Enter a task" type="text" />
+      <button id="add-todo-btn">Add Task</button>
+      <ul id="todo-list"></ul>
+    </div>
 
-  <script>
-    // Counter functionality
-    let counter = 0;
-    const counterEl = document.getElementById('counter');
-    const incrementBtn = document.getElementById('increment-btn');
-    const decrementBtn = document.getElementById('decrement-btn');
-    const resetBtn = document.getElementById('reset-btn');
+    <script>
+      // Counter functionality
+      let counter = 0
+      const counterEl = document.getElementById('counter')
+      const incrementBtn = document.getElementById('increment-btn')
+      const decrementBtn = document.getElementById('decrement-btn')
+      const resetBtn = document.getElementById('reset-btn')
 
-    function updateCounter() {
-      counterEl.textContent = counter;
-      counterEl.setAttribute('data-count', counter);
-    }
-
-    incrementBtn.addEventListener('click', () => {
-      counter++;
-      updateCounter();
-    });
-
-    decrementBtn.addEventListener('click', () => {
-      counter--;
-      updateCounter();
-    });
-
-    resetBtn.addEventListener('click', () => {
-      counter = 0;
-      updateCounter();
-    });
-
-    // Form functionality
-    const contactForm = document.getElementById('contact-form');
-    const formResult = document.getElementById('form-result');
-
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const formData = new FormData(contactForm);
-      const data = {};
-      for (let [key, value] of formData.entries()) {
-        data[key] = value;
+      function updateCounter() {
+        counterEl.textContent = counter
+        counterEl.setAttribute('data-count', counter)
       }
-      
-      formResult.style.display = 'block';
-      formResult.textContent = `Form submitted! Name: ${data.name}, Email: ${data.email}`;
-      formResult.setAttribute('data-submitted', 'true');
-      
-      window.__formSubmitted = data;
-    });
 
-    // Theme and notification preferences
-    const themeSelect = document.getElementById('theme');
-    const preferenceResult = document.getElementById('preference-result');
+      incrementBtn.addEventListener('click', () => {
+        counter++
+        updateCounter()
+      })
 
-    function updatePreferences() {
-      const theme = themeSelect.value;
-      const notification = document.querySelector('input[name="notifications"]:checked').value;
-      preferenceResult.textContent = `Theme: ${theme}, Notifications: ${notification}`;
-      preferenceResult.setAttribute('data-theme', theme);
-      preferenceResult.setAttribute('data-notifications', notification);
-    }
+      decrementBtn.addEventListener('click', () => {
+        counter--
+        updateCounter()
+      })
 
-    themeSelect.addEventListener('change', updatePreferences);
-    document.querySelectorAll('input[name="notifications"]').forEach(radio => {
-      radio.addEventListener('change', updatePreferences);
-    });
+      resetBtn.addEventListener('click', () => {
+        counter = 0
+        updateCounter()
+      })
 
-    updatePreferences();
+      // Form functionality
+      const contactForm = document.getElementById('contact-form')
+      const formResult = document.getElementById('form-result')
 
-    // Todo list functionality
-    const todoInput = document.getElementById('todo-input');
-    const addTodoBtn = document.getElementById('add-todo-btn');
-    const todoList = document.getElementById('todo-list');
-    let todoCount = 0;
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const formData = new FormData(contactForm)
+        const data = {}
+        for (let [key, value] of formData.entries()) {
+          data[key] = value
+        }
 
-    addTodoBtn.addEventListener('click', () => {
-      const task = todoInput.value.trim();
-      if (task) {
-        todoCount++;
-        const li = document.createElement('li');
-        li.textContent = task;
-        li.setAttribute('data-todo-id', todoCount);
-        
-        const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'Delete';
-        deleteBtn.style.marginLeft = '10px';
-        deleteBtn.addEventListener('click', () => {
-          li.remove();
-        });
-        
-        li.appendChild(deleteBtn);
-        todoList.appendChild(li);
-        todoInput.value = '';
-        
-        window.__todosAdded = (window.__todosAdded || 0) + 1;
+        formResult.style.display = 'block'
+        formResult.textContent = `Form submitted! Name: ${data.name}, Email: ${data.email}`
+        formResult.setAttribute('data-submitted', 'true')
+
+        window.__formSubmitted = data
+      })
+
+      // Theme and notification preferences
+      const themeSelect = document.getElementById('theme')
+      const preferenceResult = document.getElementById('preference-result')
+
+      function updatePreferences() {
+        const theme = themeSelect.value
+        const notification = document.querySelector('input[name="notifications"]:checked').value
+        preferenceResult.textContent = `Theme: ${theme}, Notifications: ${notification}`
+        preferenceResult.setAttribute('data-theme', theme)
+        preferenceResult.setAttribute('data-notifications', notification)
       }
-    });
 
-    // Mark as interactive
-    window.__interactiveElementsLoaded = true;
-  </script>
-</body>
+      themeSelect.addEventListener('change', updatePreferences)
+      document.querySelectorAll('input[name="notifications"]').forEach((radio) => {
+        radio.addEventListener('change', updatePreferences)
+      })
+
+      updatePreferences()
+
+      // Todo list functionality
+      const todoInput = document.getElementById('todo-input')
+      const addTodoBtn = document.getElementById('add-todo-btn')
+      const todoList = document.getElementById('todo-list')
+      let todoCount = 0
+
+      addTodoBtn.addEventListener('click', () => {
+        const task = todoInput.value.trim()
+        if (task) {
+          todoCount++
+          const li = document.createElement('li')
+          li.textContent = task
+          li.setAttribute('data-todo-id', todoCount)
+
+          const deleteBtn = document.createElement('button')
+          deleteBtn.textContent = 'Delete'
+          deleteBtn.style.marginLeft = '10px'
+          deleteBtn.addEventListener('click', () => {
+            li.remove()
+          })
+
+          li.appendChild(deleteBtn)
+          todoList.appendChild(li)
+          todoInput.value = ''
+
+          window.__todosAdded = (window.__todosAdded || 0) + 1
+        }
+      })
+
+      // Mark as interactive
+      window.__interactiveElementsLoaded = true
+    </script>
+  </body>
 </html>

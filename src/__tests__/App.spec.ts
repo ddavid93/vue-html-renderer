@@ -1,4 +1,4 @@
-import { describe, expect, it, beforeEach, afterEach, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { nextTick } from 'vue'
 import App from '../App.vue'
@@ -37,11 +37,10 @@ function loadFixture(filename: string): string {
 
 // Helper to wait for async operations
 async function waitFor(ms: number): Promise<void> {
-  return new Promise(resolve => setTimeout(resolve, ms))
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
-
   // Cleanup between tests
   beforeEach(() => {
     // Clear any global window properties set by scripts
@@ -70,11 +69,10 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
   })
 
   describe('Direct Mode (isShadow=false)', () => {
-
     it('renders simple content correctly', async () => {
       const html = loadFixture('simple-content.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: false }
+        props: { html, isShadow: false },
       })
 
       await nextTick()
@@ -92,7 +90,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('executes inline scripts', async () => {
       const html = loadFixture('inline-scripts.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: false }
+        props: { html, isShadow: false },
       })
 
       await nextTick()
@@ -111,7 +109,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('handles async and defer scripts correctly', async () => {
       const html = loadFixture('async-defer-scripts.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: false }
+        props: { html, isShadow: false },
       })
 
       await nextTick()
@@ -129,7 +127,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('executes ES6 module scripts', async () => {
       const html = loadFixture('module-script.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: false }
+        props: { html, isShadow: false },
       })
 
       await nextTick()
@@ -148,7 +146,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('handles interactive elements correctly', async () => {
       const html = loadFixture('interactive-elements.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: false }
+        props: { html, isShadow: false },
       })
 
       await nextTick()
@@ -171,7 +169,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('renders full HTML5 document structure', async () => {
       const html = loadFixture('full-document.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: false }
+        props: { html, isShadow: false },
       })
 
       await nextTick()
@@ -192,7 +190,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('applies multiple style blocks correctly', async () => {
       const html = loadFixture('styled-components.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: false }
+        props: { html, isShadow: false },
       })
 
       await nextTick()
@@ -212,7 +210,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('handles complex CSS selectors and features', async () => {
       const html = loadFixture('complex-styles.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: false }
+        props: { html, isShadow: false },
       })
 
       await nextTick()
@@ -232,7 +230,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('handles nested DOM structures', async () => {
       const html = loadFixture('nested-structure.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: false }
+        props: { html, isShadow: false },
       })
 
       await nextTick()
@@ -254,7 +252,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('cleans up properly on unmount', async () => {
       const html = loadFixture('simple-content.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: false }
+        props: { html, isShadow: false },
       })
 
       await nextTick()
@@ -268,11 +266,10 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
   })
 
   describe('Shadow Mode (isShadow=true)', () => {
-
     it('renders simple content in shadow DOM', async () => {
       const html = loadFixture('simple-content.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: true }
+        props: { html, isShadow: true },
       })
 
       await nextTick()
@@ -287,7 +284,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('isolates styles in shadow DOM', async () => {
       const html = loadFixture('styled-components.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: true }
+        props: { html, isShadow: true },
       })
 
       await nextTick()
@@ -305,8 +302,8 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
 
     it('extracts and injects @font-face rules', async () => {
       const html = loadFixture('font-face.html')
-      const wrapper = mount(App, {
-        props: { html, isShadow: true }
+      mount(App, {
+        props: { html, isShadow: true },
       })
 
       await nextTick()
@@ -324,8 +321,8 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
       // Clear any existing flags
       delete (window as any).__inlineScriptExecuted
 
-      const wrapper = mount(App, {
-        props: { html, isShadow: true }
+      mount(App, {
+        props: { html, isShadow: true },
       })
 
       await nextTick()
@@ -338,7 +335,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('preserves complete HTML structure in shadow DOM', async () => {
       const html = loadFixture('full-document.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: true }
+        props: { html, isShadow: true },
       })
 
       await nextTick()
@@ -367,7 +364,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('handles complex CSS in shadow DOM', async () => {
       const html = loadFixture('complex-styles.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: true }
+        props: { html, isShadow: true },
       })
 
       await nextTick()
@@ -386,7 +383,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('renders nested structures in shadow DOM', async () => {
       const html = loadFixture('nested-structure.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: true }
+        props: { html, isShadow: true },
       })
 
       await nextTick()
@@ -404,7 +401,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('cleans up shadow DOM on unmount', async () => {
       const html = loadFixture('simple-content.html')
       const wrapper = mount(App, {
-        props: { html, isShadow: true }
+        props: { html, isShadow: true },
       })
 
       await nextTick()
@@ -418,10 +415,9 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
   })
 
   describe('Edge Cases and Error Handling', () => {
-
     it('handles empty HTML string', async () => {
       const wrapper = mount(App, {
-        props: { html: '', isShadow: false }
+        props: { html: '', isShadow: false },
       })
 
       await nextTick()
@@ -431,7 +427,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('handles HTML without head or body tags', async () => {
       const html = '<div><h1>No Structure</h1><p>Just content</p></div>'
       const wrapper = mount(App, {
-        props: { html, isShadow: false }
+        props: { html, isShadow: false },
       })
 
       await nextTick()
@@ -443,7 +439,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
     it('handles malformed HTML gracefully', async () => {
       const html = '<div><p>Unclosed paragraph<div>Nested improperly</p></div>'
       const wrapper = mount(App, {
-        props: { html, isShadow: false }
+        props: { html, isShadow: false },
       })
 
       await nextTick()
@@ -456,7 +452,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
 
       // Start with direct mode
       const wrapper = mount(App, {
-        props: { html, isShadow: false }
+        props: { html, isShadow: false },
       })
 
       await nextTick()
@@ -469,7 +465,7 @@ describe('VueHTMLRenderer - Comprehensive Test Suite', () => {
 
       // Mount with shadow mode
       const wrapper2 = mount(App, {
-        props: { html, isShadow: true }
+        props: { html, isShadow: true },
       })
 
       await nextTick()

@@ -1,219 +1,229 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A complete HTML5 document for testing the renderer">
-  <meta name="keywords" content="html, test, renderer, vue">
-  <meta name="author" content="VueHTMLRenderer Test Suite">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Complete HTML5 Document Test</title>
-  
-  <!-- External Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==">
-  
-  <style>
-    /* CSS Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    /* Root Variables */
-    :root {
-      --primary-color: #3498db;
-      --secondary-color: #2ecc71;
-      --danger-color: #e74c3c;
-      --text-color: #333;
-      --bg-color: #f9f9f9;
-      --border-radius: 8px;
-      --spacing: 20px;
-    }
-    
-    /* Body Styles */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: var(--text-color);
-      background-color: var(--bg-color);
-      padding: var(--spacing);
-    }
-    
-    /* Header Styles */
-    header {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      color: white;
-      padding: calc(var(--spacing) * 2);
-      border-radius: var(--border-radius);
-      margin-bottom: var(--spacing);
-      text-align: center;
-    }
-    
-    header h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-    
-    header p {
-      font-size: 1.2em;
-      opacity: 0.9;
-    }
-    
-    /* Navigation */
-    nav {
-      background: white;
-      padding: 15px;
-      border-radius: var(--border-radius);
-      margin-bottom: var(--spacing);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-    }
-    
-    nav a {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 4px;
-      transition: background 0.3s;
-    }
-    
-    nav a:hover {
-      background: var(--bg-color);
-    }
-    
-    /* Main Content */
-    main {
-      background: white;
-      padding: calc(var(--spacing) * 1.5);
-      border-radius: var(--border-radius);
-      margin-bottom: var(--spacing);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    
-    main h2 {
-      color: var(--primary-color);
-      margin-bottom: 15px;
-      font-size: 2em;
-    }
-    
-    main p {
-      margin-bottom: 15px;
-    }
-    
-    /* Article Section */
-    article {
-      margin-bottom: var(--spacing);
-    }
-    
-    article h3 {
-      color: var(--secondary-color);
-      margin-bottom: 10px;
-    }
-    
-    /* Aside Section */
-    aside {
-      background: #fffbea;
-      border-left: 4px solid #f39c12;
-      padding: 15px;
-      margin: var(--spacing) 0;
-      border-radius: 4px;
-    }
-    
-    aside h4 {
-      color: #d68910;
-      margin-bottom: 10px;
-    }
-    
-    /* Footer */
-    footer {
-      background: #34495e;
-      color: white;
-      padding: calc(var(--spacing) * 1.5);
-      border-radius: var(--border-radius);
-      text-align: center;
-    }
-    
-    footer a {
-      color: var(--secondary-color);
-      text-decoration: none;
-    }
-    
-    /* Code Block */
-    pre {
-      background: #2d2d2d;
-      color: #f8f8f2;
-      padding: 15px;
-      border-radius: 4px;
-      overflow-x: auto;
-      margin: 15px 0;
-    }
-    
-    code {
-      font-family: 'Courier New', monospace;
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 10px;
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="A complete HTML5 document for testing the renderer" name="description" />
+    <meta content="html, test, renderer, vue" name="keywords" />
+    <meta content="VueHTMLRenderer Test Suite" name="author" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>Complete HTML5 Document Test</title>
+
+    <!-- External Font -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+
+    <!-- Favicon -->
+    <link
+      href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      rel="icon"
+      type="image/x-icon"
+    />
+
+    <style>
+      /* CSS Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      
+
+      /* Root Variables */
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2ecc71;
+        --danger-color: #e74c3c;
+        --text-color: #333;
+        --bg-color: #f9f9f9;
+        --border-radius: 8px;
+        --spacing: 20px;
+      }
+
+      /* Body Styles */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        padding: var(--spacing);
+      }
+
+      /* Header Styles */
+      header {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        padding: calc(var(--spacing) * 2);
+        border-radius: var(--border-radius);
+        margin-bottom: var(--spacing);
+        text-align: center;
+      }
+
       header h1 {
-        font-size: 1.8em;
+        font-size: 2.5em;
+        margin-bottom: 10px;
       }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Complete HTML5 Document</h1>
-    <p>Testing Full Document Structure with Head, Body, and All Semantic Elements</p>
-  </header>
 
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+      header p {
+        font-size: 1.2em;
+        opacity: 0.9;
+      }
 
-  <main>
-    <h2>Main Content Area</h2>
-    <p>This is a complete HTML5 document with proper semantic structure. It includes all the standard elements like header, nav, main, article, aside, section, and footer.</p>
+      /* Navigation */
+      nav {
+        background: white;
+        padding: 15px;
+        border-radius: var(--border-radius);
+        margin-bottom: var(--spacing);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
 
-    <article id="about">
-      <h3>About This Test</h3>
-      <p>This fixture is designed to test the renderer's ability to handle a complete HTML5 document with:</p>
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      nav a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: background 0.3s;
+      }
+
+      nav a:hover {
+        background: var(--bg-color);
+      }
+
+      /* Main Content */
+      main {
+        background: white;
+        padding: calc(var(--spacing) * 1.5);
+        border-radius: var(--border-radius);
+        margin-bottom: var(--spacing);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      main h2 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-size: 2em;
+      }
+
+      main p {
+        margin-bottom: 15px;
+      }
+
+      /* Article Section */
+      article {
+        margin-bottom: var(--spacing);
+      }
+
+      article h3 {
+        color: var(--secondary-color);
+        margin-bottom: 10px;
+      }
+
+      /* Aside Section */
+      aside {
+        background: #fffbea;
+        border-left: 4px solid #f39c12;
+        padding: 15px;
+        margin: var(--spacing) 0;
+        border-radius: 4px;
+      }
+
+      aside h4 {
+        color: #d68910;
+        margin-bottom: 10px;
+      }
+
+      /* Footer */
+      footer {
+        background: #34495e;
+        color: white;
+        padding: calc(var(--spacing) * 1.5);
+        border-radius: var(--border-radius);
+        text-align: center;
+      }
+
+      footer a {
+        color: var(--secondary-color);
+        text-decoration: none;
+      }
+
+      /* Code Block */
+      pre {
+        background: #2d2d2d;
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 4px;
+        overflow-x: auto;
+        margin: 15px 0;
+      }
+
+      code {
+        font-family: 'Courier New', monospace;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        nav ul {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        header h1 {
+          font-size: 1.8em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Complete HTML5 Document</h1>
+      <p>Testing Full Document Structure with Head, Body, and All Semantic Elements</p>
+    </header>
+
+    <nav>
       <ul>
-        <li>Proper DOCTYPE declaration</li>
-        <li>Complete &lt;head&gt; section with meta tags</li>
-        <li>Semantic HTML5 elements</li>
-        <li>CSS custom properties (variables)</li>
-        <li>Responsive design with media queries</li>
-        <li>JavaScript functionality</li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-    </article>
+    </nav>
 
-    <section id="services">
-      <h3>Features Demonstrated</h3>
-      <p>The following features are demonstrated in this document:</p>
-      
-      <pre><code>// CSS Variables
+    <main>
+      <h2>Main Content Area</h2>
+      <p>
+        This is a complete HTML5 document with proper semantic structure. It includes all the
+        standard elements like header, nav, main, article, aside, section, and footer.
+      </p>
+
+      <article id="about">
+        <h3>About This Test</h3>
+        <p>
+          This fixture is designed to test the renderer's ability to handle a complete HTML5
+          document with:
+        </p>
+        <ul>
+          <li>Proper DOCTYPE declaration</li>
+          <li>Complete &lt;head&gt; section with meta tags</li>
+          <li>Semantic HTML5 elements</li>
+          <li>CSS custom properties (variables)</li>
+          <li>Responsive design with media queries</li>
+          <li>JavaScript functionality</li>
+        </ul>
+      </article>
+
+      <section id="services">
+        <h3>Features Demonstrated</h3>
+        <p>The following features are demonstrated in this document:</p>
+
+        <pre><code>// CSS Variables
 :root {
   --primary-color: #3498db;
   --secondary-color: #2ecc71;
@@ -223,58 +233,74 @@
 @media (max-width: 768px) {
   /* Mobile styles */
 }</code></pre>
-    </section>
+      </section>
 
-    <aside>
-      <h4>Important Note</h4>
-      <p>This aside element demonstrates how supplementary content is displayed alongside the main content.</p>
-    </aside>
+      <aside>
+        <h4>Important Note</h4>
+        <p>
+          This aside element demonstrates how supplementary content is displayed alongside the main
+          content.
+        </p>
+      </aside>
 
-    <article id="contact">
-      <h3>Interactive Elements</h3>
-      <p>Click the button below to test JavaScript execution:</p>
-      <button id="test-button" style="background: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
-        Click Me
-      </button>
-      <p id="button-result" style="margin-top: 10px; font-weight: bold; color: var(--secondary-color);"></p>
-    </article>
-  </main>
+      <article id="contact">
+        <h3>Interactive Elements</h3>
+        <p>Click the button below to test JavaScript execution:</p>
+        <button
+          id="test-button"
+          style="
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+          "
+        >
+          Click Me
+        </button>
+        <p
+          id="button-result"
+          style="margin-top: 10px; font-weight: bold; color: var(--secondary-color)"
+        ></p>
+      </article>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 VueHTMLRenderer Test Suite. All rights reserved.</p>
-    <p>
-      <a href="https://github.com/vuejs/vue">Vue.js</a> | 
-      <a href="#top">Back to Top</a>
-    </p>
-  </footer>
+    <footer>
+      <p>&copy; 2025 VueHTMLRenderer Test Suite. All rights reserved.</p>
+      <p>
+        <a href="https://github.com/vuejs/vue">Vue.js</a> |
+        <a href="#top">Back to Top</a>
+      </p>
+    </footer>
 
-  <script>
-    // Test script execution
-    console.log('Full document loaded and script executed');
-    
-    // Add button click handler
-    const button = document.getElementById('test-button');
-    const result = document.getElementById('button-result');
-    let clickCount = 0;
-    
-    if (button && result) {
-      button.addEventListener('click', function() {
-        clickCount++;
-        result.textContent = `Button clicked ${clickCount} time${clickCount !== 1 ? 's' : ''}!`;
-        result.setAttribute('data-clicks', clickCount);
-        window.__buttonClicked = clickCount;
-      });
-    }
-    
-    // Mark document as loaded
-    window.__fullDocumentLoaded = true;
-    document.body.setAttribute('data-scripts-executed', 'true');
-    
-    // Test DOM API access
-    const mainElement = document.querySelector('main');
-    if (mainElement) {
-      mainElement.setAttribute('data-main-found', 'true');
-    }
-  </script>
-</body>
+    <script>
+      // Test script execution
+      console.log('Full document loaded and script executed')
+
+      // Add button click handler
+      const button = document.getElementById('test-button')
+      const result = document.getElementById('button-result')
+      let clickCount = 0
+
+      if (button && result) {
+        button.addEventListener('click', function () {
+          clickCount++
+          result.textContent = `Button clicked ${clickCount} time${clickCount !== 1 ? 's' : ''}!`
+          result.setAttribute('data-clicks', clickCount)
+          window.__buttonClicked = clickCount
+        })
+      }
+
+      // Mark document as loaded
+      window.__fullDocumentLoaded = true
+      document.body.setAttribute('data-scripts-executed', 'true')
+
+      // Test DOM API access
+      const mainElement = document.querySelector('main')
+      if (mainElement) {
+        mainElement.setAttribute('data-main-found', 'true')
+      }
+    </script>
+  </body>
 </html>

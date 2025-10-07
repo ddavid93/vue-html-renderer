@@ -1,99 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Async/Defer Scripts Test</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 20px;
-      background-color: #1a1a2e;
-      color: #eee;
-    }
-    .status {
-      background: #16213e;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 8px;
-      border-left: 4px solid #0f3460;
-    }
-    .executed {
-      border-left-color: #4caf50;
-    }
-  </style>
-</head>
-<body>
-  <h1>Async/Defer Scripts Test</h1>
-  <p>Testing different script loading strategies</p>
-  
-  <div id="regular-status" class="status">Regular script: Not executed</div>
-  <div id="defer-status" class="status">Defer script: Not executed</div>
-  <div id="async-status" class="status">Async script: Not executed</div>
-  
-  <!-- Regular script (executes immediately, blocks parsing) -->
-  <script>
-    window.__regularScriptExecuted = true;
-    window.__executionOrder = window.__executionOrder || [];
-    window.__executionOrder.push('regular');
-    
-    const regularStatus = document.getElementById('regular-status');
-    if (regularStatus) {
-      regularStatus.textContent = 'Regular script: Executed';
-      regularStatus.classList.add('executed');
-      regularStatus.setAttribute('data-executed', 'true');
-    }
-    console.log('Regular script executed');
-  </script>
-  
-  <!-- Defer script (executes after DOM is parsed, in order) -->
-  <script defer>
-    window.__deferScriptExecuted = true;
-    window.__executionOrder = window.__executionOrder || [];
-    window.__executionOrder.push('defer');
-    
-    setTimeout(() => {
-      const deferStatus = document.getElementById('defer-status');
-      if (deferStatus) {
-        deferStatus.textContent = 'Defer script: Executed';
-        deferStatus.classList.add('executed');
-        deferStatus.setAttribute('data-executed', 'true');
+  <head>
+    <meta charset="UTF-8" />
+    <title>Async/Defer Scripts Test</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px;
+        background-color: #1a1a2e;
+        color: #eee;
       }
-      console.log('Defer script executed');
-    }, 10);
-  </script>
-  
-  <!-- Async script (executes as soon as downloaded, doesn't block) -->
-  <script async>
-    window.__asyncScriptExecuted = true;
-    window.__executionOrder = window.__executionOrder || [];
-    window.__executionOrder.push('async');
-    
-    setTimeout(() => {
-      const asyncStatus = document.getElementById('async-status');
-      if (asyncStatus) {
-        asyncStatus.textContent = 'Async script: Executed';
-        asyncStatus.classList.add('executed');
-        asyncStatus.setAttribute('data-executed', 'true');
+
+      .status {
+        background: #16213e;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border-left: 4px solid #0f3460;
       }
-      console.log('Async script executed');
-    }, 5);
-  </script>
-  
-  <!-- Another defer script to test order -->
-  <script defer>
-    window.__deferScript2Executed = true;
-    setTimeout(() => {
-      console.log('Second defer script executed');
-    }, 15);
-  </script>
-  
-  <div style="margin-top: 30px; padding: 15px; background: #0f3460; border-radius: 8px;">
-    <p><strong>Script Execution Notes:</strong></p>
-    <ul>
-      <li>Regular scripts execute immediately in document order</li>
-      <li>Defer scripts execute after DOM parsing, in document order</li>
-      <li>Async scripts execute as soon as they're downloaded</li>
-    </ul>
-  </div>
-</body>
+
+      .executed {
+        border-left-color: #4caf50;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Async/Defer Scripts Test</h1>
+    <p>Testing different script loading strategies</p>
+
+    <div id="regular-status" class="status">Regular script: Not executed</div>
+    <div id="defer-status" class="status">Defer script: Not executed</div>
+    <div id="async-status" class="status">Async script: Not executed</div>
+
+    <!-- Regular script (executes immediately, blocks parsing) -->
+    <script>
+      window.__regularScriptExecuted = true
+      window.__executionOrder = window.__executionOrder || []
+      window.__executionOrder.push('regular')
+
+      const regularStatus = document.getElementById('regular-status')
+      if (regularStatus) {
+        regularStatus.textContent = 'Regular script: Executed'
+        regularStatus.classList.add('executed')
+        regularStatus.setAttribute('data-executed', 'true')
+      }
+      console.log('Regular script executed')
+    </script>
+
+    <!-- Defer script (executes after DOM is parsed, in order) -->
+    <script defer>
+      window.__deferScriptExecuted = true
+      window.__executionOrder = window.__executionOrder || []
+      window.__executionOrder.push('defer')
+
+      setTimeout(() => {
+        const deferStatus = document.getElementById('defer-status')
+        if (deferStatus) {
+          deferStatus.textContent = 'Defer script: Executed'
+          deferStatus.classList.add('executed')
+          deferStatus.setAttribute('data-executed', 'true')
+        }
+        console.log('Defer script executed')
+      }, 10)
+    </script>
+
+    <!-- Async script (executes as soon as downloaded, doesn't block) -->
+    <script async>
+      window.__asyncScriptExecuted = true
+      window.__executionOrder = window.__executionOrder || []
+      window.__executionOrder.push('async')
+
+      setTimeout(() => {
+        const asyncStatus = document.getElementById('async-status')
+        if (asyncStatus) {
+          asyncStatus.textContent = 'Async script: Executed'
+          asyncStatus.classList.add('executed')
+          asyncStatus.setAttribute('data-executed', 'true')
+        }
+        console.log('Async script executed')
+      }, 5)
+    </script>
+
+    <!-- Another defer script to test order -->
+    <script defer>
+      window.__deferScript2Executed = true
+      setTimeout(() => {
+        console.log('Second defer script executed')
+      }, 15)
+    </script>
+
+    <div style="margin-top: 30px; padding: 15px; background: #0f3460; border-radius: 8px">
+      <p><strong>Script Execution Notes:</strong></p>
+      <ul>
+        <li>Regular scripts execute immediately in document order</li>
+        <li>Defer scripts execute after DOM parsing, in document order</li>
+        <li>Async scripts execute as soon as they're downloaded</li>
+      </ul>
+    </div>
+  </body>
 </html>

@@ -1,73 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Inline Scripts Test</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-    }
-    .result {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 15px;
-      border-radius: 8px;
-      margin: 10px 0;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-  </style>
-</head>
-<body>
-  <h1>Inline Scripts Test</h1>
-  <div id="script-result" class="result">Waiting for script execution...</div>
-  <div id="calculation-result" class="result">No calculation yet</div>
-  <div id="dom-manipulation-result" class="result">No DOM manipulation yet</div>
-  
-  <script>
-    // Test 1: Simple inline script execution
-    window.__inlineScriptExecuted = true;
-    const resultEl = document.getElementById('script-result');
-    if (resultEl) {
-      resultEl.textContent = 'Inline script executed successfully!';
-      resultEl.setAttribute('data-executed', 'true');
-    }
-  </script>
-  
-  <script>
-    // Test 2: Math calculation
-    function calculate(a, b) {
-      return a + b;
-    }
-    const sum = calculate(5, 10);
-    const calcResult = document.getElementById('calculation-result');
-    if (calcResult) {
-      calcResult.textContent = `Calculation result: 5 + 10 = ${sum}`;
-      calcResult.setAttribute('data-sum', sum.toString());
-    }
-  </script>
-  
-  <script>
-    // Test 3: DOM manipulation
-    const container = document.getElementById('dom-manipulation-result');
-    if (container) {
-      const p = document.createElement('p');
-      p.textContent = 'This paragraph was created by inline script';
-      p.style.color = '#ffd700';
-      container.innerHTML = '';
-      container.appendChild(p);
-      container.setAttribute('data-modified', 'true');
-    }
-  </script>
-  
-  <script>
-    // Test 4: Sequential execution
-    window.__scriptsExecutionOrder = window.__scriptsExecutionOrder || [];
-    window.__scriptsExecutionOrder.push('script-1');
-    window.__scriptsExecutionOrder.push('script-2');
-    window.__scriptsExecutionOrder.push('script-3');
-    window.__scriptsExecutionOrder.push('script-4');
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inline Scripts Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .result {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 8px;
+        margin: 10px 0;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Inline Scripts Test</h1>
+    <div id="script-result" class="result">Waiting for script execution...</div>
+    <div id="calculation-result" class="result">No calculation yet</div>
+    <div id="dom-manipulation-result" class="result">No DOM manipulation yet</div>
+
+    <script>
+      // Test 1: Simple inline script execution
+      window.__inlineScriptExecuted = true
+      const resultEl = document.getElementById('script-result')
+      if (resultEl) {
+        resultEl.textContent = 'Inline script executed successfully!'
+        resultEl.setAttribute('data-executed', 'true')
+      }
+    </script>
+
+    <script>
+      // Test 2: Math calculation
+      function calculate(a, b) {
+        return a + b
+      }
+
+      const sum = calculate(5, 10)
+      const calcResult = document.getElementById('calculation-result')
+      if (calcResult) {
+        calcResult.textContent = `Calculation result: 5 + 10 = ${sum}`
+        calcResult.setAttribute('data-sum', sum.toString())
+      }
+    </script>
+
+    <script>
+      // Test 3: DOM manipulation
+      const container = document.getElementById('dom-manipulation-result')
+      if (container) {
+        const p = document.createElement('p')
+        p.textContent = 'This paragraph was created by inline script'
+        p.style.color = '#ffd700'
+        container.innerHTML = ''
+        container.appendChild(p)
+        container.setAttribute('data-modified', 'true')
+      }
+    </script>
+
+    <script>
+      // Test 4: Sequential execution
+      window.__scriptsExecutionOrder = window.__scriptsExecutionOrder || []
+      window.__scriptsExecutionOrder.push('script-1')
+      window.__scriptsExecutionOrder.push('script-2')
+      window.__scriptsExecutionOrder.push('script-3')
+      window.__scriptsExecutionOrder.push('script-4')
+    </script>
+  </body>
 </html>

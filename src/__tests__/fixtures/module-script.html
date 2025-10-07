@@ -1,112 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Module Script Test</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 20px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-    }
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 12px;
-      padding: 20px;
-      margin: 20px 0;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .result {
-      font-size: 18px;
-      font-weight: bold;
-      color: #ffd700;
-    }
-  </style>
-</head>
-<body>
-  <h1>ES6 Module Script Test</h1>
-  
-  <div class="card">
-    <h2>Module Features</h2>
-    <div id="module-result" class="result">Module not executed</div>
-    <div id="export-result" class="result">Exports not verified</div>
-    <div id="import-result" class="result">Imports not verified</div>
-  </div>
-  
-  <!-- ES6 Module Script -->
-  <script type="module">
-    // Module-level variables and functions
-    const moduleVersion = '1.0.0';
-    
-    function greet(name) {
-      return `Hello, ${name}!`;
-    }
-    
-    class Calculator {
-      add(a, b) {
-        return a + b;
+  <head>
+    <meta charset="UTF-8" />
+    <title>Module Script Test</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
       }
-      
-      multiply(a, b) {
-        return a * b;
+
+      .card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
-    }
-    
-    // Execute module code
-    const moduleResultEl = document.getElementById('module-result');
-    if (moduleResultEl) {
-      moduleResultEl.textContent = `Module executed successfully (v${moduleVersion})`;
-      moduleResultEl.setAttribute('data-executed', 'true');
-    }
-    
-    // Test exports by attaching to window (for testing purposes)
-    window.__moduleExports = {
-      version: moduleVersion,
-      greet,
-      Calculator
-    };
-    
-    const exportResultEl = document.getElementById('export-result');
-    if (exportResultEl) {
-      exportResultEl.textContent = 'Exports: ✓ greet, ✓ Calculator';
-      exportResultEl.setAttribute('data-verified', 'true');
-    }
-    
-    // Simulate import verification
-    const importResultEl = document.getElementById('import-result');
-    if (importResultEl) {
-      const calc = new Calculator();
-      const sum = calc.add(2, 3);
-      const greeting = greet('Module');
-      importResultEl.textContent = `Import test: ${greeting} | 2+3=${sum}`;
-      importResultEl.setAttribute('data-verified', 'true');
-    }
-    
-    // Mark as executed
-    window.__moduleScriptExecuted = true;
-  </script>
-  
-  <!-- Another module script to test multiple modules -->
-  <script type="module">
-    setTimeout(() => {
-      const card = document.querySelector('.card');
-      if (card) {
-        const info = document.createElement('div');
-        info.className = 'result';
-        info.textContent = 'Second module loaded';
-        info.setAttribute('data-second-module', 'true');
-        card.appendChild(info);
+
+      .result {
+        font-size: 18px;
+        font-weight: bold;
+        color: #ffd700;
       }
-      window.__secondModuleExecuted = true;
-    }, 10);
-  </script>
-  
-  <!-- Regular script to verify module execution -->
-  <script>
-    // This runs before module scripts (modules are deferred by default)
-    window.__regularScriptExecuted = true;
-  </script>
-</body>
+    </style>
+  </head>
+  <body>
+    <h1>ES6 Module Script Test</h1>
+
+    <div class="card">
+      <h2>Module Features</h2>
+      <div id="module-result" class="result">Module not executed</div>
+      <div id="export-result" class="result">Exports not verified</div>
+      <div id="import-result" class="result">Imports not verified</div>
+    </div>
+
+    <!-- ES6 Module Script -->
+    <script type="module">
+      // Module-level variables and functions
+      const moduleVersion = '1.0.0'
+
+      function greet(name) {
+        return `Hello, ${name}!`
+      }
+
+      class Calculator {
+        add(a, b) {
+          return a + b
+        }
+
+        multiply(a, b) {
+          return a * b
+        }
+      }
+
+      // Execute module code
+      const moduleResultEl = document.getElementById('module-result')
+      if (moduleResultEl) {
+        moduleResultEl.textContent = `Module executed successfully (v${moduleVersion})`
+        moduleResultEl.setAttribute('data-executed', 'true')
+      }
+
+      // Test exports by attaching to window (for testing purposes)
+      window.__moduleExports = {
+        version: moduleVersion,
+        greet,
+        Calculator,
+      }
+
+      const exportResultEl = document.getElementById('export-result')
+      if (exportResultEl) {
+        exportResultEl.textContent = 'Exports: ✓ greet, ✓ Calculator'
+        exportResultEl.setAttribute('data-verified', 'true')
+      }
+
+      // Simulate import verification
+      const importResultEl = document.getElementById('import-result')
+      if (importResultEl) {
+        const calc = new Calculator()
+        const sum = calc.add(2, 3)
+        const greeting = greet('Module')
+        importResultEl.textContent = `Import test: ${greeting} | 2+3=${sum}`
+        importResultEl.setAttribute('data-verified', 'true')
+      }
+
+      // Mark as executed
+      window.__moduleScriptExecuted = true
+    </script>
+
+    <!-- Another module script to test multiple modules -->
+    <script type="module">
+      setTimeout(() => {
+        const card = document.querySelector('.card')
+        if (card) {
+          const info = document.createElement('div')
+          info.className = 'result'
+          info.textContent = 'Second module loaded'
+          info.setAttribute('data-second-module', 'true')
+          card.appendChild(info)
+        }
+        window.__secondModuleExecuted = true
+      }, 10)
+    </script>
+
+    <!-- Regular script to verify module execution -->
+    <script>
+      // This runs before module scripts (modules are deferred by default)
+      window.__regularScriptExecuted = true
+    </script>
+  </body>
 </html>
