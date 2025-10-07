@@ -51,7 +51,7 @@
   - No reactive updates (renders once on mount)
   - Clean unmount with proper cleanup
 -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import { useHtmlRenderer } from './composables/useHtmlRenderer'
 import type { IHtmlRendererProps } from './extras/types'
 

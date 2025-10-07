@@ -26,7 +26,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
   build: {
@@ -36,7 +36,7 @@ export default defineConfig({
       // Library name (global variable name in UMD build)
       name: 'VueHTMLRenderer',
       // Output file names for different formats
-      fileName: (format) => `vue-html-renderer.${format === 'es' ? 'js' : 'umd.cjs'}`
+      fileName: (format) => `vue-html-renderer.${format === 'es' ? 'js' : 'umd.cjs'}`,
     },
     rollupOptions: {
       // Externalize Vue - don't bundle it with the library
@@ -45,15 +45,15 @@ export default defineConfig({
       output: {
         // Global variables to use in UMD build for externalized deps
         globals: {
-          vue: 'Vue'
+          vue: 'Vue',
         },
         // Preserve exports from the entry point
-        exports: 'named'
-      }
+        exports: 'named',
+      },
     },
     // Generate source maps for debugging
     sourcemap: true,
     // Clear the output directory before building
-    emptyOutDir: true
-  }
+    emptyOutDir: true,
+  },
 })

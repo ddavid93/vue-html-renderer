@@ -36,29 +36,29 @@ You might wonder: "Why not just use an `<iframe>`?" Here are the key reasons:
 ### Problems with iFrame:
 
 1. **Manual Size Management**
-    - iFrames require explicit width and height
-    - Content doesn't naturally flow with the parent layout
-    - Responsive sizing requires complex JavaScript solutions
+   - iFrames require explicit width and height
+   - Content doesn't naturally flow with the parent layout
+   - Responsive sizing requires complex JavaScript solutions
 
 2. **Complex Security Configuration**
-    - Sandbox flags must be manually configured
-    - Easy to misconfigure and create security vulnerabilities
-    - Different browsers have different default behaviors
+   - Sandbox flags must be manually configured
+   - Easy to misconfigure and create security vulnerabilities
+   - Different browsers have different default behaviors
 
 3. **Communication Overhead**
-    - Parent-child communication requires postMessage API
-    - Complex bidirectional data flow
-    - Difficult to share state or context
+   - Parent-child communication requires postMessage API
+   - Complex bidirectional data flow
+   - Difficult to share state or context
 
 4. **Performance Impact**
-    - Each iframe creates a complete browser context
-    - Higher memory usage
-    - Slower initial load times
+   - Each iframe creates a complete browser context
+   - Higher memory usage
+   - Slower initial load times
 
 5. **SEO and Accessibility Issues**
-    - Search engines may not index iframe content properly
-    - Screen readers may have difficulty navigating
-    - URL management is more complex
+   - Search engines may not index iframe content properly
+   - Screen readers may have difficulty navigating
+   - URL management is more complex
 
 ### Advantages of This Library:
 
@@ -74,6 +74,7 @@ You might wonder: "Why not just use an `<iframe>`?" Here are the key reasons:
 ## ✨ Features
 
 ### Direct Mode (isShadow=false)
+
 - ✅ Full script execution support
 - ✅ Async, defer, and sequential script handling
 - ✅ Module script support (`type="module"`)
@@ -82,6 +83,7 @@ You might wonder: "Why not just use an `<iframe>`?" Here are the key reasons:
 - ✅ No style isolation (uses parent styles)
 
 ### Shadow Mode (isShadow=true)
+
 - ✅ Complete style isolation using Shadow DOM
 - ✅ Preserves full HTML structure (`<html>`, `<head>`, `<body>`)
 - ✅ Automatic @font-face extraction and injection
@@ -90,6 +92,7 @@ You might wonder: "Why not just use an `<iframe>`?" Here are the key reasons:
 - ✅ CSS encapsulation (no style leakage)
 
 ### Common Features
+
 - ✅ Vue 3 Composition API
 - ✅ Full TypeScript support
 - ✅ Comprehensive documentation
@@ -137,9 +140,9 @@ vue-html-renderer/
 The library is currently part of the `yts-coupon-widget` project. To use it in your components:
 
 ```typescript
-import HtmlRenderer from '@/components/htmlRenderer/HtmlRenderer.vue';
+import HtmlRenderer from '@/components/htmlRenderer/HtmlRenderer.vue'
 // or
-import { useHtmlRenderer } from '@/components/htmlRenderer/composables/useHtmlRenderer';
+import { useHtmlRenderer } from '@/components/htmlRenderer/composables/useHtmlRenderer'
 ```
 
 ### As a Standalone Library (Future)
@@ -187,7 +190,7 @@ const htmlContent = `
 </template>
 
 <script setup lang="ts">
-import HtmlRenderer from '@/components/htmlRenderer/HtmlRenderer.vue';
+import HtmlRenderer from '@/components/htmlRenderer/HtmlRenderer.vue'
 
 const htmlContent = `
   <!doctype html>
@@ -203,7 +206,7 @@ const htmlContent = `
       <p>These styles won't affect the parent document!</p>
     </body>
   </html>
-`;
+`
 </script>
 ```
 
@@ -215,12 +218,12 @@ const htmlContent = `
 </template>
 
 <script setup lang="ts">
-import { useHtmlRenderer } from '@/components/htmlRenderer/composables/useHtmlRenderer';
+import { useHtmlRenderer } from '@/components/htmlRenderer/composables/useHtmlRenderer'
 
 const { hostRef, clear } = useHtmlRenderer({
   html: '<div>Content</div>',
-  isShadow: false
-});
+  isShadow: false,
+})
 
 // Manually clear content if needed
 // clear();
@@ -235,18 +238,15 @@ const { hostRef, clear } = useHtmlRenderer({
 
 #### Props
 
-| Prop | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| `html` | `string` | Yes | - | The HTML string to render |
-| `isShadow` | `boolean` | No | `false` | Whether to use Shadow DOM mode |
+| Prop       | Type      | Required | Default | Description                    |
+| ---------- | --------- | -------- | ------- | ------------------------------ |
+| `html`     | `string`  | Yes      | -       | The HTML string to render      |
+| `isShadow` | `boolean` | No       | `false` | Whether to use Shadow DOM mode |
 
 #### Example
 
 ```vue
-<HtmlRenderer 
-  :html="myHtmlString" 
-  :is-shadow="true" 
-/>
+<HtmlRenderer :html="myHtmlString" :is-shadow="true" />
 ```
 
 ---
@@ -257,8 +257,8 @@ const { hostRef, clear } = useHtmlRenderer({
 
 ```typescript
 interface IHtmlRendererOptions {
-  html: string;      // The HTML string to render
-  isShadow?: boolean; // Whether to use Shadow DOM mode (default: false)
+  html: string // The HTML string to render
+  isShadow?: boolean // Whether to use Shadow DOM mode (default: false)
 }
 ```
 
@@ -266,9 +266,9 @@ interface IHtmlRendererOptions {
 
 ```typescript
 interface IHtmlRendererComposable {
-  hostRef: Ref<HTMLElement | undefined>;    // Template ref for the host element
-  clear: () => void;                         // Function to clear rendered content
-  shadowRoot?: Ref<ShadowRoot | undefined>;  // Shadow root ref (shadow mode only)
+  hostRef: Ref<HTMLElement | undefined> // Template ref for the host element
+  clear: () => void // Function to clear rendered content
+  shadowRoot?: Ref<ShadowRoot | undefined> // Shadow root ref (shadow mode only)
 }
 ```
 
@@ -277,8 +277,8 @@ interface IHtmlRendererComposable {
 ```typescript
 const { hostRef, clear, shadowRoot } = useHtmlRenderer({
   html: '<div>Content</div>',
-  isShadow: true
-});
+  isShadow: true,
+})
 ```
 
 ---
@@ -318,15 +318,15 @@ See `types.ts` for complete type definitions:
 
 ## ⚖️ Rendering Modes Comparison
 
-| Feature | Direct Mode | Shadow Mode |
-|---------|-------------|-------------|
-| **Script Execution** | ✅ Yes (full support) | ❌ No (by design) |
-| **Style Isolation** | ❌ No (uses parent styles) | ✅ Yes (complete isolation) |
-| **HTML Structure** | Partial | ✅ Complete (`<html>`, `<body>`, `<head>`) |
-| **Font Loading** | ✅ Automatic | ✅ Automatic (@font-face injection) |
-| **Performance** | Fast | Very Fast |
-| **Security** | Requires trust in HTML source | Higher (no scripts) |
-| **Use Cases** | Interactive content, widgets | Documents, formatted content |
+| Feature              | Direct Mode                   | Shadow Mode                                |
+| -------------------- | ----------------------------- | ------------------------------------------ |
+| **Script Execution** | ✅ Yes (full support)         | ❌ No (by design)                          |
+| **Style Isolation**  | ❌ No (uses parent styles)    | ✅ Yes (complete isolation)                |
+| **HTML Structure**   | Partial                       | ✅ Complete (`<html>`, `<body>`, `<head>`) |
+| **Font Loading**     | ✅ Automatic                  | ✅ Automatic (@font-face injection)        |
+| **Performance**      | Fast                          | Very Fast                                  |
+| **Security**         | Requires trust in HTML source | Higher (no scripts)                        |
+| **Use Cases**        | Interactive content, widgets  | Documents, formatted content               |
 
 ### When to Use Direct Mode
 
@@ -357,7 +357,7 @@ See `types.ts` for complete type definitions:
 </template>
 
 <script setup lang="ts">
-import HtmlRenderer from '@/components/htmlRenderer/HtmlRenderer.vue';
+import HtmlRenderer from '@/components/htmlRenderer/HtmlRenderer.vue'
 
 const couponHtml = `
   <!doctype html>
@@ -386,7 +386,7 @@ const couponHtml = `
       <p>Valid until: 2025-12-31</p>
     </body>
   </html>
-`;
+`
 </script>
 ```
 

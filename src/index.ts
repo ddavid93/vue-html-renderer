@@ -46,6 +46,4 @@ export { default as App } from './App.vue'
  * import type { IHtmlRendererProps } from 'vue-html-renderer';
  * ```
  */
-export type {
-  IHtmlRendererProps,
-} from './extras/types'
+export type { IHtmlRendererProps } from './extras/types'

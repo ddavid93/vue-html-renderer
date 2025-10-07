@@ -46,7 +46,7 @@ export function uid(): string {
  * ```
  */
 export function normalizeHtml(raw: string): string {
-  if (!raw || typeof raw !== 'string') {
+  if (!raw) {
     return ''
   }
 
@@ -70,7 +70,7 @@ export function normalizeHtml(raw: string): string {
  * ```
  */
 export function normalizeAttr(val: string): string {
-  if (!val || typeof val !== 'string') {
+  if (!val) {
     return ''
   }
 
@@ -99,11 +99,7 @@ export function normalizeAttr(val: string): string {
  * ```
  */
 export function findPlaceholderNode(root: ParentNode, id: string): Comment | null {
-  const walker = document.createTreeWalker(
-    root,
-    NodeFilter.SHOW_COMMENT,
-    null
-  )
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_COMMENT, null)
 
   let node: Node | null
   while ((node = walker.nextNode())) {

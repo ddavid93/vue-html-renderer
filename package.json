@@ -37,7 +37,7 @@
     "install-packages": "pnpm install",
     "lint:eslint": "eslint . --fix",
     "lint": "run-s lint:*",
-    "format": "prettier --write src/"
+    "format": "prettier --write ."
   },
   "peerDependencies": {
     "vue": ">=2.7.0 || ^3.0.0"

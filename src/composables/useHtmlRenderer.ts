@@ -22,8 +22,8 @@
 
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import type { IHtmlRendererComposable, IHtmlRendererOptions } from '../extras/types'
-import { renderIntoShadowRoot, clearShadowRoot } from '../renderers/shadowRenderer'
-import { renderDirectly, clearElement } from '../renderers/directRenderer'
+import { clearShadowRoot, renderIntoShadowRoot } from '../renderers/shadowRenderer'
+import { clearElement, renderDirectly } from '../renderers/directRenderer'
 
 /**
  * useHtmlRenderer
