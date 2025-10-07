@@ -1,0 +1,5 @@
+onlyBuiltDependencies:
+  - esbuild
+
+minimumReleaseAge: 2880 # 2 days
+
