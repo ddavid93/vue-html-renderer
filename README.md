@@ -135,10 +135,6 @@ vue-html-renderer/
 
 ## 📦 Installation
 
-### As Part of a Project
-
-The library is currently part of the `yts-coupon-widget` project. To use it in your components:
-
 ```typescript
 import HtmlRenderer from '@/components/htmlRenderer/HtmlRenderer.vue'
 // or
@@ -483,7 +479,7 @@ When contributing to this library, please follow these guidelines:
 
 ## 📄 License
 
-Part of the yts-coupon-widget project.
+Free to use.
 
 ---
 

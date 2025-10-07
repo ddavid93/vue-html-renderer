@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Complex CSS Styles Test</title>
+  <style>
+    /* Advanced Selectors and Pseudo-classes */
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(45deg, #f3f4f6 25%, transparent 25%),
+                  linear-gradient(-45deg, #f3f4f6 25%, transparent 25%),
+                  linear-gradient(45deg, transparent 75%, #f3f4f6 75%),
+                  linear-gradient(-45deg, transparent 75%, #f3f4f6 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+    
+    /* Complex Combinators */
+    .wrapper > .section:first-child {
+      margin-top: 0;
+    }
+    
+    .wrapper > .section:last-child {
+      margin-bottom: 0;
+    }
+    
+    .section + .section {
+      margin-top: 30px;
+    }
+    
+    .section ~ .highlight {
+      background-color: #fff9c4;
+    }
+    
+    /* Attribute Selectors */
+    [data-status="active"] {
+      border-left: 4px solid #4caf50;
+    }
+    
+    [data-status="pending"] {
+      border-left: 4px solid #ff9800;
+    }
+    
+    [data-status="inactive"] {
+      border-left: 4px solid #f44336;
+    }
+    
+    input[type="text"]:focus,
+    input[type="email"]:focus {
+      outline: 2px solid #2196f3;
+      outline-offset: 2px;
+    }
+    
+    a[href^="https"]::before {
+      content: "🔒 ";
+    }
+    
+    a[href$=".pdf"]::after {
+      content: " 📄";
+    }
+    
+    [class*="badge-"] {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.75em;
+      font-weight: bold;
+    }
+    
+    /* Pseudo-elements */
+    .quote::before {
+      content: '"';
+      font-size: 3em;
+      color: #9e9e9e;
+      position: absolute;
+      left: -20px;
+      top: -10px;
+    }
+    
+    .quote::after {
+      content: '"';
+      font-size: 3em;
+      color: #9e9e9e;
+      position: absolute;
+      right: -20px;
+      bottom: -30px;
+    }
+    
+    .list-item::before {
+      content: "✓ ";
+      color: #4caf50;
+      font-weight: bold;
+    }
+    
+    /* Pseudo-classes */
+    .button-group button:first-child {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+    
+    .button-group button:last-child {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    
+    .items > div:nth-child(odd) {
+      background-color: #f5f5f5;
+    }
+    
+    .items > div:nth-child(even) {
+      background-color: #e0e0e0;
+    }
+    
+    .items > div:nth-child(3n) {
+      font-weight: bold;
+    }
+    
+    .link:hover {
+      text-decoration: underline;
+      color: #1976d2;
+    }
+    
+    .link:active {
+      color: #0d47a1;
+    }
+    
+    .link:visited {
+      color: #7b1fa2;
+    }
+    
+    input:checked + label {
+      background-color: #4caf50;
+      color: white;
+    }
+    
+    input:disabled + label {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .form-field:focus-within {
+      background-color: #e3f2fd;
+      border-color: #2196f3;
+    }
+    
+    /* Advanced Layout */
+    .section {
+      background: white;
+      padding: 30px;
+      margin: 20px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    
+    .grid-complex {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-auto-rows: minmax(100px, auto);
+      gap: 20px;
+      margin: 20px 0;
+    }
+    
+    .grid-complex > div:first-child {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    
+    /* CSS Variables and calc() */
+    :root {
+      --primary: #2196f3;
+      --secondary: #4caf50;
+      --spacing: 20px;
+      --radius: 8px;
+    }
+    
+    .dynamic-box {
+      width: calc(100% - var(--spacing) * 2);
+      margin: var(--spacing);
+      padding: var(--spacing);
+      border-radius: var(--radius);
+      background: var(--primary);
+      color: white;
+    }
+    
+    /* Filters and Transforms */
+    .effect-grayscale {
+      filter: grayscale(100%);
+    }
+    
+    .effect-blur {
+      filter: blur(2px);
+    }
+    
+    .effect-brightness {
+      filter: brightness(1.2);
+    }
+    
+    .transform-rotate {
+      transform: rotate(5deg);
+    }
+    
+    .transform-scale:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
+    }
+    
+    /* Clip-path */
+    .clip-polygon {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+      background: linear-gradient(135deg, #ff6b6b, #feca57);
+      padding: 30px;
+      color: white;
+      text-align: center;
+    }
+    
+    /* Multi-column Layout */
+    .columns {
+      column-count: 3;
+      column-gap: 30px;
+      column-rule: 2px solid #e0e0e0;
+    }
+    
+    /* Backdrop Filter */
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      color: #333;
+    }
+    
+    /* Mix-blend-mode */
+    .blend-multiply {
+      mix-blend-mode: multiply;
+      background: #ff6b6b;
+      padding: 20px;
+      color: white;
+    }
+    
+    /* Object-fit */
+    .image-container img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    
+    /* Utility Classes */
+    .text-center { text-align: center; }
+    .text-right { text-align: right; }
+    .mt-1 { margin-top: 10px; }
+    .mt-2 { margin-top: 20px; }
+    .mb-1 { margin-bottom: 10px; }
+    .mb-2 { margin-bottom: 20px; }
+    .p-1 { padding: 10px; }
+    .p-2 { padding: 20px; }
+    .flex { display: flex; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .gap-2 { gap: 20px; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="section">
+      <h1 class="text-center">Complex CSS Styles Test</h1>
+      <p class="text-center">Testing advanced CSS selectors, pseudo-elements, and modern CSS features</p>
+    </div>
+    
+    <!-- Attribute Selectors Test -->
+    <div class="section" data-status="active">
+      <h2>Status Indicators</h2>
+      <div class="p-1 mb-1" data-status="active">Active Status (Green Border)</div>
+      <div class="p-1 mb-1" data-status="pending">Pending Status (Orange Border)</div>
+      <div class="p-1" data-status="inactive">Inactive Status (Red Border)</div>
+    </div>
+    
+    <!-- Pseudo-elements Test -->
+    <div class="section">
+      <h2>Pseudo-elements</h2>
+      <blockquote class="quote" style="position: relative; padding: 20px 40px; font-style: italic; color: #666;">
+        This quote demonstrates ::before and ::after pseudo-elements with decorative quotation marks.
+      </blockquote>
+      <ul style="list-style: none; padding: 0;">
+        <li class="list-item">First item with checkmark</li>
+        <li class="list-item">Second item with checkmark</li>
+        <li class="list-item">Third item with checkmark</li>
+      </ul>
+    </div>
+    
+    <!-- Pseudo-classes Test -->
+    <div class="section">
+      <h2>Pseudo-classes</h2>
+      <div class="items">
+        <div class="p-1">Item 1 (Odd)</div>
+        <div class="p-1">Item 2 (Even)</div>
+        <div class="p-1">Item 3 (Odd + Bold - 3n)</div>
+        <div class="p-1">Item 4 (Even)</div>
+        <div class="p-1">Item 5 (Odd)</div>
+        <div class="p-1">Item 6 (Even + Bold - 3n)</div>
+      </div>
+    </div>
+    
+    <!-- Grid Layout -->
+    <div class="section">
+      <h2>Advanced Grid</h2>
+      <div class="grid-complex">
+        <div><strong>Full Width Header</strong></div>
+        <div style="background: #ffebee; padding: 20px; border-radius: 8px;">Grid Item 1</div>
+        <div style="background: #e8f5e9; padding: 20px; border-radius: 8px;">Grid Item 2</div>
+        <div style="background: #e3f2fd; padding: 20px; border-radius: 8px;">Grid Item 3</div>
+        <div style="background: #fff3e0; padding: 20px; border-radius: 8px;">Grid Item 4</div>
+      </div>
+    </div>
+    
+    <!-- CSS Variables -->
+    <div class="section">
+      <h2>CSS Variables & calc()</h2>
+      <div class="dynamic-box">
+        This box uses CSS variables and calc() for dynamic sizing
+      </div>
+    </div>
+    
+    <!-- Filters and Effects -->
+    <div class="section">
+      <h2>Visual Effects</h2>
+      <div class="flex gap-2 mb-2">
+        <div class="p-2 effect-grayscale" style="background: linear-gradient(135deg, #f093fb, #f5576c); color: white; flex: 1; border-radius: 8px;">
+          Grayscale Filter
+        </div>
+        <div class="p-2 effect-brightness" style="background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; flex: 1; border-radius: 8px;">
+          Brightness Filter
+        </div>
+      </div>
+      <div class="clip-polygon mt-2">
+        Clipped Polygon Shape
+      </div>
+    </div>
+    
+    <!-- Multi-column -->
+    <div class="section">
+      <h2>Multi-column Layout</h2>
+      <div class="columns">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      </div>
+    </div>
+    
+    <!-- Links with pseudo-elements -->
+    <div class="section">
+      <h2>Link Types</h2>
+      <p><a href="https://example.com" class="link">Secure link (with lock icon)</a></p>
+      <p><a href="document.pdf" class="link">PDF link (with PDF icon)</a></p>
+    </div>
+    
+    <div class="section highlight">
+      <h2>Highlight Section</h2>
+      <p>This section is highlighted using the general sibling combinator (~)</p>
+    </div>
+  </div>
+  
+  <script>
+    // Mark complex styles as loaded
+    window.__complexStylesLoaded = true;
+    
+    // Test computed styles for various elements
+    const section = document.querySelector('.section');
+    if (section) {
+      const styles = window.getComputedStyle(section);
+      window.__sectionBorderRadius = styles.borderRadius;
+      window.__sectionBoxShadow = styles.boxShadow;
+      section.setAttribute('data-styles-checked', 'true');
+    }
+    
+    // Test CSS variables
+    const dynamicBox = document.querySelector('.dynamic-box');
+    if (dynamicBox) {
+      const styles = window.getComputedStyle(dynamicBox);
+      window.__dynamicBoxBackground = styles.backgroundColor;
+      dynamicBox.setAttribute('data-css-vars-applied', 'true');
+    }
+    
+    // Count elements with specific selectors
+    window.__statusActiveCount = document.querySelectorAll('[data-status="active"]').length;
+    window.__nthChildItems = document.querySelectorAll('.items > div:nth-child(3n)').length;
+    
+    document.body.setAttribute('data-complex-styles-ready', 'true');
+  </script>
+</body>
+</html>
